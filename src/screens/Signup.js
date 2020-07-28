@@ -3,13 +3,11 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  StatusBar,
   Image,
   TouchableOpacity,
 } from 'react-native';
 import {
   Button,
-  Switch,
   Subheading,
   TextInput,
   HelperText,
@@ -18,8 +16,10 @@ import {
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {ProjectLogo} from '../utils/ContentConstant';
+import LinearGradient from 'react-native-linear-gradient';
+import ButtonFilled from '../components/ButtonFilled';
 
-const Signup = () => {
+const Signup = ({navigation}) => {
   const {colors} = useTheme();
 
   const [isSwitchOn, setIsSwitchOn] = useState(false);
@@ -35,7 +35,17 @@ const Signup = () => {
 
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={['#110732', '#29ABE2', '#1DA069']}
+      style={styles.container}>
+      {/* <View>
+        <Icon
+          style={styles.icon}
+          color="white"
+          name="facebook-square"
+          size={30}
+        />
+      </View> */}
       <ScrollView style={styles.view}>
         <View style={styles.logoContainer}>
           <Image style={{}} source={ProjectLogo} />
@@ -104,31 +114,30 @@ const Signup = () => {
         <HelperText type="error" visible={false}>
           {state.error}
         </HelperText>
-        <Button style={styles.btn} mode="contained" onPress={() => {}}>
-          Create Account
-        </Button>
+        <TouchableOpacity style={styles.btn} onPress={() => {}}>
+          <ButtonFilled name="CREATE ACCOUNT" />
+        </TouchableOpacity>
         <Subheading
           style={[styles.textGrey, {marginVertical: 10, fontSize: 14}]}>
           You must be at least 18 years old to sign up for Medusa Psychic
           Academy. By signing up you agree to the Privacy Policy and Terms of
           Service
         </Subheading>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Subheading style={styles.ac}>Already have an account?</Subheading>
         </TouchableOpacity>
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#110732',
     paddingHorizontal: 15,
   },
   view: {
-    marginTop: 25,
+    marginTop: 30,
     paddingHorizontal: 20,
     backgroundColor: 'white',
     borderTopLeftRadius: 35,

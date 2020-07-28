@@ -18,8 +18,9 @@ import {
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {ProjectLogo} from '../utils/ContentConstant';
-
-const Login = () => {
+import LinearGradient from 'react-native-linear-gradient';
+import ButtonFilled from '../components/ButtonFilled';
+const Login = ({navigation}) => {
   const {colors} = useTheme();
 
   const [isSwitchOn, setIsSwitchOn] = useState(false);
@@ -35,12 +36,13 @@ const Login = () => {
 
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={['#110732', '#29ABE2', '#1DA069']}
+      style={styles.container}>
       <ScrollView style={styles.view}>
         <View style={styles.logoContainer}>
           <Image style={{}} source={ProjectLogo} />
         </View>
-
         <Title style={{color: '#1DA069'}}>Welcome Back,</Title>
         <Subheading style={[styles.textGrey, {marginBottom: 20}]}>
           Sign in to continue
@@ -95,11 +97,11 @@ const Login = () => {
             value={isSwitchOn}
             onValueChange={onToggleSwitch}
           />
-          <Subheading style={styles.textGrey}>Remember me</Subheading>
+          <Subheading style={styles.textGrey}> Remember me</Subheading>
         </View>
-        <Button style={styles.btn} mode="contained" onPress={() => {}}>
-          Login
-        </Button>
+        <TouchableOpacity style={styles.btn} onPress={() => {}}>
+          <ButtonFilled name="LOGIN" />
+        </TouchableOpacity>
         <TouchableOpacity style={styles.bottomRow} onPress={() => {}}>
           <Subheading style={styles.textGrey}>Forgot your Password?</Subheading>
         </TouchableOpacity>
@@ -107,7 +109,7 @@ const Login = () => {
           <Subheading style={{color: '#93288D'}}>
             Don't have an account?
           </Subheading>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
             <Subheading style={{color: '#93288D'}}> Sign Up</Subheading>
           </TouchableOpacity>
         </View>
@@ -126,18 +128,17 @@ const Login = () => {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#110732',
     paddingHorizontal: 15,
   },
   view: {
-    marginTop: 25,
+    marginTop: 30,
     paddingHorizontal: 20,
     backgroundColor: 'white',
     height: 600,
@@ -168,6 +169,7 @@ const styles = StyleSheet.create({
   socialIcons: {
     flexDirection: 'row',
     justifyContent: 'center',
+    marginVertical: 10,
   },
   icon: {
     margin: 10,
