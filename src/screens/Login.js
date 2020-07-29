@@ -99,7 +99,9 @@ const Login = ({navigation}) => {
           />
           <Subheading style={styles.textGrey}> Remember me</Subheading>
         </View>
-        <TouchableOpacity style={styles.btn} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => navigation.navigate('SideDrawer')}>
           <ButtonFilled name="LOGIN" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.bottomRow} onPress={() => {}}>
