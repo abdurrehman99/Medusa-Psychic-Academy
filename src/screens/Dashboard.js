@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     textAlign: 'center',
-    padding: 10,
+    padding: 8,
     lineHeight: 18,
     color: 'white',
   },

@@ -1,7 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import HomeStack from './HomeStack';
-
+import DrawerContent from '../screens/DrawerContent';
 const Drawer = createDrawerNavigator();
 
 const sideDrawer = () => {
@@ -9,11 +9,9 @@ const sideDrawer = () => {
     <Drawer.Navigator
       drawerPosition="left"
       drawerStyle={{
-        width: 300,
+        width: 320,
       }}
-      //   drawerContent={(props) => <MyCart {...props} />
-      // }
-    >
+      drawerContent={(props) => <DrawerContent {...props} />}>
       <Drawer.Screen name="Dashboard" component={HomeStack} />
     </Drawer.Navigator>
   );
