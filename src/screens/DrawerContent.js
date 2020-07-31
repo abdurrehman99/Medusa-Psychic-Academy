@@ -51,7 +51,9 @@ const SideDrawer = ({navigation}) => {
           <Icon name="home" style={styles.icon} color="white" size={25} />
           <Subheading style={styles.listItem}>Home</Subheading>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.listItemGroup}
+          onPress={() => navigation.navigate('AllAdvisors')}>
           <Icon name="user" style={styles.icon} color="white" size={25} />
           <Subheading style={styles.listItem}>All Advisors</Subheading>
         </TouchableOpacity>

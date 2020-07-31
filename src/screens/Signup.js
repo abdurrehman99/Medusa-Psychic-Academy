@@ -5,6 +5,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 import {
   Button,
@@ -34,22 +35,15 @@ const Signup = ({navigation}) => {
   });
 
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+  // let {width} = Dimensions.get('window')
   return (
     <LinearGradient
       colors={['#110732', '#29ABE2', '#1DA069']}
       style={styles.container}>
-      {/* <View>
-        <Icon
-          style={styles.icon}
-          color="white"
-          name="facebook-square"
-          size={30}
-        />
-      </View> */}
       <ScrollView style={styles.view}>
-        <View style={styles.logoContainer}>
-          <Image style={{}} source={ProjectLogo} />
-        </View>
+        {/* <View style={styles.logoContainer}> */}
+        <Image style={{flex: 1, marginVertical: 20}} source={ProjectLogo} />
+        {/* </View> */}
         <Title style={{color: '#1DA069'}}>New Customer,</Title>
         <Subheading style={[styles.textGrey, {marginBottom: 20}]}>
           Sign up to manage your accounts
@@ -145,6 +139,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     marginVertical: 20,
+    alignSelf: 'center',
   },
   bottomRow: {
     flexDirection: 'row',

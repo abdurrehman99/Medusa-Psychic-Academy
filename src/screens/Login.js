@@ -40,9 +40,7 @@ const Login = ({navigation}) => {
       colors={['#110732', '#29ABE2', '#1DA069']}
       style={styles.container}>
       <ScrollView style={styles.view}>
-        <View style={styles.logoContainer}>
-          <Image style={{}} source={ProjectLogo} />
-        </View>
+        <Image style={{marginVertical: 20, flex: 1}} source={ProjectLogo} />
         <Title style={{color: '#1DA069'}}>Welcome Back,</Title>
         <Subheading style={[styles.textGrey, {marginBottom: 20}]}>
           Sign in to continue
@@ -149,6 +147,7 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     marginVertical: 20,
+    // marginHorizontal: 50,
   },
   switchRow: {
     flexDirection: 'row',

@@ -5,6 +5,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 import {
   Searchbar,
@@ -23,7 +24,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import ButtonFilled from '../components/ButtonFilled';
 import MyCard from '../components/Card';
 
-const Dashboard = ({navigation}) => {
+const AllAdvisors = ({navigation}) => {
   const [state, setState] = useState({
     passwordVisible: false,
   });
@@ -36,6 +37,9 @@ const Dashboard = ({navigation}) => {
   const showDialog = () => setVisible(true);
 
   const hideDialog = () => setVisible(false);
+
+  let {width} = Dimensions.get('window');
+  console.log(width / 2);
 
   return (
     <ScrollView>
@@ -61,7 +65,7 @@ const Dashboard = ({navigation}) => {
         <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
           <Icon name="menu" color="white" size={32} />
         </TouchableOpacity>
-        <Title style={styles.title}>Dashboard</Title>
+        <Title style={styles.title}>All Advisors</Title>
         <TouchableOpacity onPress={() => showDialog()}>
           <Icon name="menu-open" color="white" size={32} />
         </TouchableOpacity>
@@ -73,18 +77,15 @@ const Dashboard = ({navigation}) => {
         value={searchQuery}
       />
       <View style={styles.container}>
-        <Title style={styles.coloredTitle}>STAFF PICK</Title>
-        <Image
-          style={{width: '100%', height: 150, marginTop: 5, borderRadius: 8}}
-          source={{uri: 'https://picsum.photos/650'}}
-        />
-        <Title style={{marginVertical: 10}}>SAGEST</Title>
-        <Paragraph style={styles.textGrey}>
-          Etiam neque justo, posuere faucibus tincidunt cursus, egestas
-          sollicitudin arcu. Nunc non ex sit amet dui commodo scelerisque ac ac
-          odio. Read More
-        </Paragraph>
-        <Title style={styles.greyTitle}>Recently Viewed</Title>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginVertical: 10,
+          }}>
+          <Icon name="eye" color="lightblue" size={32} />
+          <Title style={styles.greyTitle}> Recently Viewed</Title>
+        </View>
         <ScrollView horizontal={true}>
           <View
             style={{
@@ -127,65 +128,13 @@ const Dashboard = ({navigation}) => {
             </Paragraph>
           </View>
         </ScrollView>
-        <Title style={styles.coloredTitle}>TRENDING</Title>
-        <View style={styles.videoBox}>
-          <View
-            style={{
-              flexDirection: 'row',
-              position: 'absolute',
-              marginHorizontal: 10,
-              zIndex: 300,
-              top: 15,
-            }}>
-            <Icon name="star" style={{marginRight: 5}} color="gold" size={22} />
-            <Icon name="star" style={{marginRight: 5}} color="gold" size={22} />
-            <Icon name="star" style={{marginRight: 5}} color="gold" size={22} />
-            <Icon name="star" style={{marginRight: 5}} color="gold" size={22} />
-            <Icon name="star" style={{marginRight: 5}} color="gold" size={22} />
-          </View>
-          <Image
-            style={styles.video}
-            source={{uri: 'https://picsum.photos/660'}}
-          />
-          <TouchableOpacity
-            onPress={() => {}}
-            style={{
-              position: 'absolute',
-              zIndex: 300,
-              top: '40%',
-              right: '45%',
-            }}>
-            <Icon name="play-circle" color="white" size={40} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {}}
-            style={{
-              position: 'absolute',
-              zIndex: 400,
-              bottom: 40,
-              right: 10,
-            }}>
-            <Icon name="heart" color="red" size={30} />
-          </TouchableOpacity>
-          <View style={{backgroundColor: '#1DA069'}}>
-            <Title style={{textAlign: 'center', color: 'white'}}>
-              TOP ACCURACY
-            </Title>
-          </View>
-          {/* <View style={{flexDirection: 'row'}}>
-            <Subheading style={{textAlign: 'center'}}>485</Subheading>
-            <Icon name="smile" color="red" size={25} />
-
-            <Subheading style={{textAlign: 'center'}}>185</Subheading>
-            <Icon name="smile" color="red" size={25} />
-          </View> */}
-        </View>
-        <ScrollView horizontal={true}>
+        <View style={{flexDirection: 'row', marginTop: 15}}>
           <TouchableOpacity onPress={() => navigation.navigate('Advisor')}>
             <MyCard
               name="Dr. Gabby"
               speciality="Love Guru"
               image="https://picsum.photos/793"
+              width={width / 2 - 40}
               online
             />
           </TouchableOpacity>
@@ -194,13 +143,17 @@ const Dashboard = ({navigation}) => {
               name="Dr. Gabby"
               speciality="Love Guru"
               image="https://picsum.photos/794"
+              width={width / 2 - 40}
             />
           </TouchableOpacity>
+        </View>
+        <View style={{flexDirection: 'row', marginTop: 15}}>
           <TouchableOpacity onPress={() => navigation.navigate('Advisor')}>
             <MyCard
               name="Dr. Gabby"
               speciality="Love Guru"
-              image="https://picsum.photos/795"
+              image="https://picsum.photos/693"
+              width={width / 2 - 40}
               online
             />
           </TouchableOpacity>
@@ -208,54 +161,103 @@ const Dashboard = ({navigation}) => {
             <MyCard
               name="Dr. Gabby"
               speciality="Love Guru"
-              image="https://picsum.photos/796"
+              image="https://picsum.photos/694"
+              width={width / 2 - 40}
             />
           </TouchableOpacity>
+        </View>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginVertical: 10,
+          }}>
+          <Icon name="heart" color="red" size={30} />
+          <Title style={styles.greyTitle}> Favourite Advisors</Title>
+        </View>
+        <ScrollView horizontal={true}>
+          <View
+            style={{
+              width: 80,
+              marginRight: 30,
+            }}>
+            <Avatar.Image
+              size={75}
+              source={{uri: 'https://picsum.photos/690'}}
+            />
+            <Paragraph style={{textAlign: 'center', color: 'grey'}}>
+              Enchanted Empress
+            </Paragraph>
+          </View>
+          <View style={{width: 80, marginRight: 30}}>
+            <Avatar.Image
+              size={75}
+              source={{uri: 'https://picsum.photos/691'}}
+            />
+            <Paragraph style={{textAlign: 'center', color: 'grey'}}>
+              James Jade
+            </Paragraph>
+          </View>
+          <View style={{width: 80, marginRight: 30}}>
+            <Avatar.Image
+              size={75}
+              source={{uri: 'https://picsum.photos/692'}}
+            />
+            <Paragraph style={{textAlign: 'center', color: 'grey'}}>
+              Advisor Empress
+            </Paragraph>
+          </View>
+          <View style={{width: 80, marginRight: 30}}>
+            <Avatar.Image
+              size={75}
+              source={{uri: 'https://picsum.photos/693'}}
+            />
+            <Paragraph style={{textAlign: 'center', color: 'grey'}}>
+              Enchanted Empress
+            </Paragraph>
+          </View>
         </ScrollView>
-        <View style={styles.btnView}>
-          <TouchableOpacity
-            style={{backgroundColor: '#FF6600', width: '45%', borderRadius: 5}}
-            onPress={() => {}}>
-            <View>
-              <Subheading style={styles.btnText}>
-                Available for 24-hour delivery
-              </Subheading>
-            </View>
+        <View style={{flexDirection: 'row', marginTop: 15}}>
+          <TouchableOpacity onPress={() => navigation.navigate('Advisor')}>
+            <MyCard
+              name="Dr. Gabby"
+              speciality="Love Guru"
+              image="https://picsum.photos/799"
+              width={width / 2 - 40}
+              online
+            />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={{backgroundColor: '#1C8D02', width: '45%', borderRadius: 5}}
-            onPress={() => {}}>
-            <View>
-              <Subheading style={styles.btnText}>
-                Available for 24-hour delivery
-              </Subheading>
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.btnView}>
-          <TouchableOpacity
-            style={{backgroundColor: '#0080FF', width: '45%', borderRadius: 5}}
-            onPress={() => {}}>
-            <View>
-              <Subheading style={styles.btnText}>
-                Available for live video call
-              </Subheading>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{backgroundColor: '#935A28', width: '45%', borderRadius: 5}}
-            onPress={() => {}}>
-            <View>
-              <Subheading style={styles.btnText}>
-                Voted most accurate
-              </Subheading>
-            </View>
+          <TouchableOpacity onPress={() => navigation.navigate('Advisor')}>
+            <MyCard
+              name="Dr. Gabby"
+              speciality="Love Guru"
+              image="https://picsum.photos/797"
+              width={width / 2 - 40}
+            />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={styles.btn}
-          onPress={() => navigation.navigate('AllAdvisors')}>
-          <ButtonFilled name="SEE ALL ADVISORS" />
+        <View style={{flexDirection: 'row', marginTop: 15}}>
+          <TouchableOpacity onPress={() => navigation.navigate('Advisor')}>
+            <MyCard
+              name="Dr. Gabby"
+              speciality="Love Guru"
+              image="https://picsum.photos/798"
+              width={width / 2 - 40}
+              online
+            />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Advisor')}>
+            <MyCard
+              name="Dr. Gabby"
+              speciality="Love Guru"
+              image="https://picsum.photos/791"
+              width={width / 2 - 40}
+            />
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity style={styles.btn} onPress={() => {}}>
+          <ButtonFilled name="LOAD MORE" />
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -299,8 +301,6 @@ const styles = StyleSheet.create({
   },
   greyTitle: {
     color: 'grey',
-    marginTop: 20,
-    marginBottom: 10,
   },
 
   textGrey: {color: 'grey'},
@@ -347,4 +347,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dashboard;
+export default AllAdvisors;
