@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Login from '../screens/Login';
 import Signup from '../screens/Signup';
+import ForgotPassword from '../screens/ForgotPassword';
 import SideDrawer from './SideDrawer';
 
 const Stack = createStackNavigator();
@@ -18,6 +19,11 @@ const AppNavigation = (props) => {
         options={{header: () => null}}
         name="Signup"
         component={Signup}
+      />
+      <Stack.Screen
+        options={{header: () => null}}
+        name="ForgotPassword"
+        component={ForgotPassword}
       />
       <Stack.Screen
         options={{header: () => null}}

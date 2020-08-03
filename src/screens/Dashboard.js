@@ -56,7 +56,11 @@ const Dashboard = ({navigation}) => {
           </TouchableOpacity>
         </Dialog>
       </Portal>
-      <Image style={styles.pattren} source={GRADIENT_PATTREN} />
+      <Image
+        resizeMode="stretch"
+        style={styles.pattren}
+        source={GRADIENT_PATTREN}
+      />
       <View style={styles.headerView}>
         <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
           <Icon name="menu" color="white" size={32} />
@@ -265,17 +269,16 @@ const Dashboard = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 45,
+    marginTop: 70,
     paddingHorizontal: 25,
     backgroundColor: 'white',
   },
   pattren: {
     width: '100%',
-    // height: 250,
     position: 'absolute',
   },
   searchBar: {
-    marginTop: 60,
+    marginTop: 30,
     marginHorizontal: 25,
   },
   title: {

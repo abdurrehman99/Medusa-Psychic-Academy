@@ -315,9 +315,8 @@ const styles = StyleSheet.create({
   headerView: {
     flexDirection: 'row',
     textAlign: 'center',
-    marginTop: 10,
     marginHorizontal: 25,
-    marginVertical: 30,
+    marginVertical: 20,
     justifyContent: 'space-between',
   },
   btnView: {

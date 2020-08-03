@@ -102,7 +102,9 @@ const Login = ({navigation}) => {
           onPress={() => navigation.navigate('SideDrawer')}>
           <ButtonFilled name="LOGIN" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.bottomRow} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.bottomRow}
+          onPress={() => navigation.navigate('ForgotPassword')}>
           <Subheading style={styles.textGrey}>Forgot your Password?</Subheading>
         </TouchableOpacity>
         <View style={styles.bottomRow}>

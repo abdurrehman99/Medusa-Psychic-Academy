@@ -65,7 +65,9 @@ const SideDrawer = ({navigation}) => {
         </View>
         <View style={styles.line} />
 
-        <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.listItemGroup}
+          onPress={() => navigation.navigate('Home')}>
           <RoundIcon icon={HOME_LOGO} />
           <Subheading style={styles.listItem}>Home</Subheading>
         </TouchableOpacity>

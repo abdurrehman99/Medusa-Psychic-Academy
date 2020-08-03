@@ -15,18 +15,15 @@ import {
   Title,
   useTheme,
 } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Ic from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ProjectLogo} from '../utils/ContentConstant';
 import LinearGradient from 'react-native-linear-gradient';
 import ButtonFilled from '../components/ButtonFilled';
 
-const Signup = ({navigation}) => {
+const ForgotPassword = ({navigation}) => {
   const {colors} = useTheme();
 
-  const [state, setState] = useState({
-    passwordVisible: false,
-  });
+  const [state, setState] = useState({});
 
   const [formValues, setformValues] = useState({
     email: '',
@@ -41,33 +38,20 @@ const Signup = ({navigation}) => {
         <TouchableOpacity
           style={styles.rowView}
           onPress={() => navigation.pop()}>
-          <Ic name="keyboard-backspace" color="white" size={32} />
+          <Icon name="keyboard-backspace" color="white" size={32} />
           <Subheading style={styles.title}> Back</Subheading>
         </TouchableOpacity>
       </View>
       <ScrollView style={styles.view}>
         <Image resizeMode="contain" style={{width: 240}} source={ProjectLogo} />
-        <Title style={{color: '#1DA069'}}>New Customer,</Title>
+        <Title style={{color: '#1DA069'}}>
+          Reset your Medusa Psychic Academy Password
+        </Title>
         <Subheading style={[styles.textGrey, {marginBottom: 20}]}>
-          Sign up to manage your accounts
+          Submit your email address and we'll send you a link to reset your
+          password
         </Subheading>
-        <Subheading style={styles.bottomRow}>
-          Connect with Social Networks
-        </Subheading>
-        <View style={styles.socialIcons}>
-          <TouchableOpacity onPress={() => {}}>
-            <Icon style={styles.icon} name="facebook-square" size={30} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => {}}>
-            <Icon style={styles.icon} name="google" size={30} />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.bottomRow}>
-          <Subheading style={styles.textGrey}>OR</Subheading>
-          <TouchableOpacity onPress={() => {}}>
-            <Subheading style={styles.textGrey}> Create an account</Subheading>
-          </TouchableOpacity>
-        </View>
+
         <TextInput
           style={styles.formControl}
           onChangeText={(email) =>
@@ -82,47 +66,11 @@ const Signup = ({navigation}) => {
         <HelperText type="error" visible={false}>
           {state.error}
         </HelperText>
-        <View style={{flexDirection: 'row'}}>
-          <TextInput
-            style={styles.formControl}
-            onChangeText={(password) =>
-              setformValues({
-                ...formValues,
-                password,
-              })
-            }
-            label="Pasword"
-            secureTextEntry={true}
-            value={formValues.password}
-          />
-          <TouchableOpacity
-            onPress={() => {
-              setState({...state, passwordVisible: true});
-              console.log('icon lcik');
-            }}>
-            <Icon
-              style={{position: 'absolute', zIndex: 300, right: 5, top: 25}}
-              name="eye-slash"
-              color="grey"
-              size={30}
-            />
-          </TouchableOpacity>
-        </View>
-        <HelperText type="error" visible={false}>
-          {state.error}
-        </HelperText>
         <TouchableOpacity style={styles.btn} onPress={() => {}}>
-          <ButtonFilled name="CREATE ACCOUNT" />
+          <ButtonFilled name="RESET PASSWORD" />
         </TouchableOpacity>
-        <Subheading
-          style={[styles.textGrey, {marginVertical: 10, fontSize: 14}]}>
-          You must be at least 18 years old to sign up for Medusa Psychic
-          Academy. By signing up you agree to the Privacy Policy and Terms of
-          Service
-        </Subheading>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Subheading style={styles.ac}>Already have an account?</Subheading>
-        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Login')}></TouchableOpacity>
       </ScrollView>
     </LinearGradient>
   );
@@ -183,4 +131,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Signup;
+export default ForgotPassword;
