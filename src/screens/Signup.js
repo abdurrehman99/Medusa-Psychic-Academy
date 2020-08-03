@@ -41,9 +41,7 @@ const Signup = ({navigation}) => {
       colors={['#110732', '#29ABE2', '#1DA069']}
       style={styles.container}>
       <ScrollView style={styles.view}>
-        {/* <View style={styles.logoContainer}> */}
-        <Image style={{flex: 1, marginVertical: 20}} source={ProjectLogo} />
-        {/* </View> */}
+        <Image resizeMode="contain" style={{width: 240}} source={ProjectLogo} />
         <Title style={{color: '#1DA069'}}>New Customer,</Title>
         <Subheading style={[styles.textGrey, {marginBottom: 20}]}>
           Sign up to manage your accounts

@@ -18,9 +18,26 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import I from 'react-native-vector-icons/Ionicons';
 
-import {ProjectLogo} from '../utils/ContentConstant';
 import LinearGradient from 'react-native-linear-gradient';
-import ButtonFilled from '../components/ButtonFilled';
+import RoundIcon from '../components/RoundIcon';
+
+import HOME_LOGO from '../assets/home.png';
+import USER_LOGO from '../assets/user.png';
+import ORDER_LOGO from '../assets/order.png';
+import FAV_LOGO from '../assets/fav.png';
+import LOCATION_LOGO from '../assets/location.png';
+import WALLET_LOGO from '../assets/wallet.png';
+
+import INVITE_LOGO from '../assets/invite.png';
+import LIKE_LOGO from '../assets/like.png';
+import INTERNET_LOGO from '../assets/internet.png';
+
+import LANGUAGE_LOGO from '../assets/language.png';
+import TECHNICAL_LOGO from '../assets/technical-support.png';
+import COUPON_LOGO from '../assets/coupon.png';
+import PLAY_LOGO from '../assets/play.png';
+import SETTINGS_LOGO from '../assets/settings.png';
+import CLICK_LOGO from '../assets/click.png';
 
 const SideDrawer = ({navigation}) => {
   const {colors} = useTheme();
@@ -47,83 +64,81 @@ const SideDrawer = ({navigation}) => {
           </View>
         </View>
         <View style={styles.line} />
+
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="home" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={HOME_LOGO} />
           <Subheading style={styles.listItem}>Home</Subheading>
         </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.listItemGroup}
           onPress={() => navigation.navigate('AllAdvisors')}>
-          <Icon name="user" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={USER_LOGO} />
           <Subheading style={styles.listItem}>All Advisors</Subheading>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="th-large" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={ORDER_LOGO} />
           <Subheading style={styles.listItem}>Categories</Subheading>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon
-            name="shopping-bag"
-            style={styles.icon}
-            color="white"
-            size={25}
-          />
+          <RoundIcon icon={ORDER_LOGO} />
           <Subheading style={styles.listItem}>My Orders</Subheading>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="heart" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={FAV_LOGO} />
           <Subheading style={styles.listItem}>Favourite Advisors</Subheading>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="map-marker" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={LOCATION_LOGO} />
           <Subheading style={styles.listItem}>Journeys</Subheading>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon
-            name="credit-card"
-            style={styles.icon}
-            color="white"
-            size={25}
-          />
+          <RoundIcon icon={WALLET_LOGO} />
           <Subheading style={styles.listItem}>Credit</Subheading>
         </TouchableOpacity>
+
         <View style={styles.line} />
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="user" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={INVITE_LOGO} />
           <Subheading style={styles.listItem}>Invite Friends</Subheading>
         </TouchableOpacity>
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="thumbs-up" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={LIKE_LOGO} />
           <Subheading style={styles.listItem}>Rate Us</Subheading>
         </TouchableOpacity>
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="globe" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={INTERNET_LOGO} />
           <Subheading style={styles.listItem}>Our Website</Subheading>
         </TouchableOpacity>
         <View style={styles.line} />
 
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="language" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={LANGUAGE_LOGO} />
           <Subheading style={styles.listItem}>Language</Subheading>
         </TouchableOpacity>
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="headphones" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={TECHNICAL_LOGO} />
           <Subheading style={styles.listItem}>Customer Support</Subheading>
         </TouchableOpacity>
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="ticket" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={COUPON_LOGO} />
           <Subheading style={styles.listItem}>Promo Code</Subheading>
         </TouchableOpacity>
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="play" style={styles.icon} color="white" size={22} />
+          <RoundIcon icon={PLAY_LOGO} />
           <Subheading style={styles.listItem}>Tutorials</Subheading>
         </TouchableOpacity>
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="thumbs-up" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={SETTINGS_LOGO} />
           <Subheading style={styles.listItem}>Settings</Subheading>
         </TouchableOpacity>
         <TouchableOpacity style={styles.listItemGroup} onPress={() => {}}>
-          <Icon name="hand-o-up" style={styles.icon} color="white" size={25} />
+          <RoundIcon icon={CLICK_LOGO} />
           <Subheading style={styles.listItem}>Psychic? Apply Here</Subheading>
         </TouchableOpacity>
       </LinearGradient>
@@ -169,13 +184,12 @@ const styles = StyleSheet.create({
   listItemGroup: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginVertical: 6,
   },
   line: {
     borderBottomColor: 'white',
     borderBottomWidth: 1,
-    marginTop: 20,
-    marginBottom: 15,
+    marginVertical: 15,
   },
 });
 

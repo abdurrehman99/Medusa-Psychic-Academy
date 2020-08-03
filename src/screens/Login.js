@@ -40,7 +40,7 @@ const Login = ({navigation}) => {
       colors={['#110732', '#29ABE2', '#1DA069']}
       style={styles.container}>
       <ScrollView style={styles.view}>
-        <Image style={{marginVertical: 20, flex: 1}} source={ProjectLogo} />
+        <Image resizeMode="contain" style={{width: 240}} source={ProjectLogo} />
         <Title style={{color: '#1DA069'}}>Welcome Back,</Title>
         <Subheading style={[styles.textGrey, {marginBottom: 20}]}>
           Sign in to continue
